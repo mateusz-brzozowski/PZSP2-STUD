@@ -4,19 +4,27 @@
 # Build directory
 build/
 
-# Gradle
-.gradle/
-
 # Log files
 *.log
 
 # Package files
 *.jar
 
+
+# Gradle
+.gradle/
+!gradle/wrapper/gradle-wrapper.jar
+
 # JetBrains IDE
 .idea/
 *.iml
 *.iws
+
+# Android Studio
+/captures
+.externalNativeBuild
+.cxx
+local.properties
 
 # Unit test reports
 TEST*.xml
