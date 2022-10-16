@@ -43,11 +43,10 @@ apply plugin: 'checkstyle'
 task checkstyle(type: Checkstyle) {
 	description 'Check code standard'
 	group 'verification'
-	configFile file('config/checkstyle/checkstyle.xml')
-	source '.'
+	source = fileTree('.') {
+		excludes = ['.*/**', 'gradle*', 'build/**', '*.iml', '*.log', '**/*.jar']
+	}
 
 	classpath = files()
-	ignoreFailures = false
+	preBuild.dependsOn('checkstyle')
 }
-
-preBuild.dependsOn('checkstyle')
