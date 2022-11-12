@@ -73,3 +73,9 @@ task checkstyle(type: Checkstyle) {
 	classpath = files()
 	preBuild.dependsOn('checkstyle')
 }
+
+sonarqube {
+	properties {
+		property "sonar.projectKey", "pis22z_android_AYRoa2IwhCb-_oA5D4BA"
+	}
+}
