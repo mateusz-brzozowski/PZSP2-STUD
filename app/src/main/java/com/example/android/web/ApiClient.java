@@ -2,26 +2,25 @@ package com.example.android.web;
 
 import com.example.model.Concept;
 import com.example.model.Definition;
-import feign.Param;
-import feign.RequestLine;
+import retrofit2.Call;
+import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 public interface ApiClient {
 
 	static ApiClient getInstance() {
-		return ApiClient.builder()
-				.build();
+		return ApiClientBuilder.getInstance();
 	}
 
-	static ApiClientBuilder builder() {
-		return new ApiClientBuilder();
-	}
+	@GET("ping/{name}")
+	Call<String> testConnection(@Path(value = "name") String name);
 
-	@RequestLine("GET concept/definition/{id}")
-	Definition getDefinitionById(@Param(value = "id") int id);
+	@GET("concept/definition/{id}")
+	Call<Definition> getDefinitionById(@Path(value = "id") int id);
 
-	@RequestLine("GET concept/{id}")
-	Concept getConceptById(@Param(value = "id") int id);
+	@GET("concept/{id}")
+	Call<Concept> getConceptById(@Path(value = "id") int id);
 
-	@RequestLine("GET concept/{sectionId}")
-	Concept saveConcept(@Param(value = "sectionId") int sectionId, Concept concept);
+	@GET("concept/{sectionId}")
+	Call<Concept> saveConcept(@Path(value = "sectionId") int sectionId, Concept concept);
 }
