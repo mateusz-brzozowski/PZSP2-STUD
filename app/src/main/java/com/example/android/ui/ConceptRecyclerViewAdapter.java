@@ -1,26 +1,26 @@
 package com.example.android.ui;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.android.R;
 import com.example.model.Concept;
 import com.example.model.Paragraph;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
 public class ConceptRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 	private static final int CONCEPT = 1;
 	private static final int PARAGRAPH = 2;
-	private final Concept concept;
+	private Concept concept;
 
+	public ConceptRecyclerViewAdapter() {
+		this.concept = new Concept();
+	}
 
 	public ConceptRecyclerViewAdapter(Concept concept) {
 		this.concept = concept;
@@ -66,6 +66,10 @@ public class ConceptRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
 			return CONCEPT;
 		}
 		return PARAGRAPH;
+	}
+
+	public void setConcept(Concept concept) {
+		this.concept = concept;
 	}
 
 	public static class ConceptViewHolder extends RecyclerView.ViewHolder {
