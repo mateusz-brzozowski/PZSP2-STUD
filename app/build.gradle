@@ -46,11 +46,16 @@ android {
 }
 
 dependencies {
-	implementation 'com.example:model:1.0-SNAPSHOT'
+	implementation 'com.example:model:1.1-SNAPSHOT'
 
 	implementation 'androidx.appcompat:appcompat:1.5.1'
 	implementation 'com.google.android.material:material:1.7.0'
 	implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+	//noinspection AnnotationProcessorOnCompilePath
+	compileOnly 'org.projectlombok:lombok:1.18.24'
+	annotationProcessor 'org.projectlombok:lombok:1.18.24'
+
 	testImplementation 'junit:junit:4.13.2'
 
 	testImplementation 'org.codehaus.groovy:groovy:3.0.13'

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/paragraph_linear_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/surface_background"
+        android:elevation="4dp"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/paragraph_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/title_medium"
+            tools:text="Paragraph" />
+
+        <TextView
+            android:id="@+id/paragraph_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/body_medium"
+            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec tortor nisl. Suspendisse sodales fermentum nisl. Duis viverra, sapien non iaculis tempus, orci ex lobortis augue, posuere ornare eros augue sit amet nibh. Sed vulputate purus dui, quis volutpat augue consectetur quis. Phasellus porttitor arcu ut tellus faucibus tincidunt." />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
