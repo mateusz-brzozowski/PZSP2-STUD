@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		TextView textView = findViewById(R.id.hello_api);
+		TextView textView = findViewById(R.id.main_text_view);
 
 		var client = ApiClient.getInstance();
 
