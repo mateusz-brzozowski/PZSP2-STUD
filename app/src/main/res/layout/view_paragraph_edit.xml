@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <LinearLayout
-        android:id="@+id/paragraph_linear_layout"
+        android:id="@+id/paragraph_edit_linear_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -25,10 +25,10 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/concept_name"
+                android:id="@+id/paragraph_edit_name"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:gravity="center"
+                android:gravity="start"
                 android:textAppearance="@style/title_large"
                 tools:text="Paragraph"
                 android:autofillHints=""
@@ -41,6 +41,7 @@
                 android:layout_weight="1" />
 
             <Button
+                android:id="@+id/paragraph_edit_delete_button"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
 
@@ -55,7 +56,7 @@
         </LinearLayout>
 
         <EditText
-            android:id="@+id/paragraph_content"
+            android:id="@+id/paragraph_edit_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="@style/body_medium"

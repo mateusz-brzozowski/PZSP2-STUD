@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <LinearLayout
-        android:id="@+id/concept_linear_layout"
+        android:id="@+id/concept_edit_linear_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -25,10 +25,10 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/concept_name"
+                android:id="@+id/concept_edit_name"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:gravity="center"
+                android:gravity="start"
                 android:textAppearance="@style/title_large"
                 tools:text="Concept"
                 android:inputType="text"
@@ -41,6 +41,7 @@
                 android:layout_weight="1" />
 
             <Button
+                android:id="@+id/concept_edit_accept_button"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
 
@@ -54,6 +55,7 @@
                 app:iconTint="@color/colorPrimary" />
 
             <Button
+                android:id="@+id/concept_edit_close_button"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
 
@@ -68,7 +70,7 @@
         </LinearLayout>
 
         <EditText
-            android:id="@+id/concept_content"
+            android:id="@+id/concept_edit_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="@style/body_medium"
