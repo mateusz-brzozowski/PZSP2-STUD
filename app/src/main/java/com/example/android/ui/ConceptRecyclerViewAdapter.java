@@ -1,8 +1,10 @@
 package com.example.android.ui;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -16,6 +18,10 @@ import com.example.model.Paragraph;
 public class ConceptRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 	private static final int CONCEPT = 1;
 	private static final int PARAGRAPH = 2;
+	private static final int CONCEPT_EDITABLE = 3;
+	private static final int PARAGRAPH_EDITABLE = 4;
+	private static final int ADD_BUTTON = 5;
+	private boolean editable = false;
 	private Concept concept;
 
 	public ConceptRecyclerViewAdapter() {
@@ -35,6 +41,15 @@ public class ConceptRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
 		} else if (viewType == PARAGRAPH) {
 			View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_paragraph, parent, false);
 			return new ParagraphViewHolder(view);
+		} else if (viewType == CONCEPT_EDITABLE) {
+			View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_concept_edit, parent, false);
+			return new ConceptEditableViewHolder(view);
+		} else if (viewType == PARAGRAPH_EDITABLE) {
+			View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_paragraph_edit, parent, false);
+			return new ParagraphEditableViewHolder(view);
+		} else if (viewType == ADD_BUTTON) {
+			View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_paragraph_new, parent, false);
+			return new AddButtonViewHolder(view);
 		}
 		throw new UnsupportedOperationException("Unsupported type exception");
 	}
@@ -45,6 +60,7 @@ public class ConceptRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
 			if (concept != null) {
 				((ConceptViewHolder) holder).textConceptName.setText(concept.getKeyPhrase());
 				((ConceptViewHolder) holder).textConceptContent.setText(concept.getSummary());
+				((ConceptViewHolder) holder).buttonEditConcept.setOnClickListener((View v) -> changeDisplayMode());
 			}
 		} else if (holder instanceof ParagraphViewHolder) {
 			Paragraph paragraph = concept.getParagraphs().get(position - 1);
@@ -57,15 +73,25 @@ public class ConceptRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
 
 	@Override
 	public int getItemCount() {
-		return 1 + concept.getParagraphs().size();
+		var button = editable ? 1 : 0;
+		return 1 + concept.getParagraphs().size() + button;
 	}
 
 	@Override
 	public int getItemViewType(int position) {
-		if (position == 0) {
-			return CONCEPT;
+		if (editable) {
+			if (position == 0) {
+				return CONCEPT_EDITABLE;
+			} else if (position == getItemCount() - 1) {
+				return ADD_BUTTON;
+			}
+			return PARAGRAPH_EDITABLE;
+		} else {
+			if (position == 0) {
+				return CONCEPT;
+			}
+			return PARAGRAPH;
 		}
-		return PARAGRAPH;
 	}
 
 	public void setConcept(Concept concept) {
@@ -75,12 +101,14 @@ public class ConceptRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
 	public static class ConceptViewHolder extends RecyclerView.ViewHolder {
 		public final TextView textConceptName;
 		public final TextView textConceptContent;
+		public final Button buttonEditConcept;
 
 		public ConceptViewHolder(@NonNull View itemView) {
 			super(itemView);
 
 			this.textConceptName = itemView.findViewById(R.id.concept_name);
 			this.textConceptContent = itemView.findViewById(R.id.concept_content);
+			this.buttonEditConcept = itemView.findViewById(R.id.concept_edit_button);
 		}
 	}
 
@@ -96,5 +124,29 @@ public class ConceptRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
 			this.textParagraphContent = itemView.findViewById(R.id.paragraph_content);
 			this.linearLayout = itemView.findViewById(R.id.paragraph_linear_layout);
 		}
+	}
+
+	public static class ConceptEditableViewHolder extends RecyclerView.ViewHolder {
+		public ConceptEditableViewHolder(@NonNull View itemView) {
+			super(itemView);
+		}
+	}
+
+	public static class ParagraphEditableViewHolder extends RecyclerView.ViewHolder {
+		public ParagraphEditableViewHolder(@NonNull View itemView) {
+			super(itemView);
+		}
+	}
+
+	public static class AddButtonViewHolder extends RecyclerView.ViewHolder {
+		public AddButtonViewHolder(@NonNull View itemView) {
+			super(itemView);
+		}
+	}
+
+	@SuppressLint("NotifyDataSetChanged")
+	public void changeDisplayMode() {
+		editable = !editable;
+		notifyDataSetChanged();
 	}
 }
