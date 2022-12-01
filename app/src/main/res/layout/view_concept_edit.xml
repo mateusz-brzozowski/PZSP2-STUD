@@ -27,11 +27,12 @@
             <EditText
                 android:id="@+id/concept_edit_name"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:gravity="start"
                 android:textAppearance="@style/title_large"
                 tools:text="Concept"
-                android:inputType="text"
+                android:maxWidth="200dp"
+                android:inputType="textCapSentences|textMultiLine"
                 android:autofillHints=""
                 android:hint="@string/hint_concept"/>
 

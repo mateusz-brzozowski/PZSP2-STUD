@@ -1,6 +1,7 @@
 package com.example.android.ui;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,9 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.android.R;
 import com.example.android.web.ApiClient;
 import com.example.model.Concept;
-import com.example.model.Paragraph;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -44,10 +42,7 @@ public class ConceptActivity extends AppCompatActivity {
 		RecyclerView.LayoutManager manager = new LinearLayoutManager(this);
 		recyclerView.setLayoutManager(manager);
 
-		Concept concept = Concept.builder().summary("Lorem\nLorem\nSIEMA").keyPhrase("Concept")
-				.paragraphs(List.of(Paragraph.builder().header("Paragraph").description("SIEMASKOSDADASD").build())).build();
-
-		conceptRecyclerViewAdapter = new ConceptRecyclerViewAdapter();
+		conceptRecyclerViewAdapter = new ConceptRecyclerViewAdapter(this.getApplicationContext());
 		getConcept();
 
 		recyclerView.setAdapter(conceptRecyclerViewAdapter);
@@ -56,7 +51,8 @@ public class ConceptActivity extends AppCompatActivity {
 
 	private void getConcept() {
 		ApiClient apiClient = ApiClient.getInstance();
-		Call<Concept> call = apiClient.getConceptById(1);
+		var settings = getSharedPreferences("Android", Activity.MODE_PRIVATE);
+		Call<Concept> call = apiClient.getConceptById(settings.getInt("concept", 7));
 		call.enqueue(new Callback<>() {
 			@SuppressLint("NotifyDataSetChanged")
 			@Override

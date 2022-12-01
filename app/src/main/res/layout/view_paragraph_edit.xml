@@ -27,13 +27,14 @@
             <EditText
                 android:id="@+id/paragraph_edit_name"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:gravity="start"
                 android:textAppearance="@style/title_large"
                 tools:text="Paragraph"
+                android:maxWidth="200dp"
+                android:inputType="textCapSentences|textMultiLine"
                 android:autofillHints=""
-                android:hint="@string/hint_paragraph"
-                android:inputType="text"/>
+                android:hint="@string/hint_paragraph" />
 
             <Space
                 android:layout_width="0dp"
