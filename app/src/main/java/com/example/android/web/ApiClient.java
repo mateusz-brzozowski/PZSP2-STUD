@@ -3,7 +3,9 @@ package com.example.android.web;
 import com.example.model.Concept;
 import com.example.model.Definition;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 public interface ApiClient {
@@ -21,6 +23,6 @@ public interface ApiClient {
 	@GET("concept/{id}")
 	Call<Concept> getConceptById(@Path(value = "id") int id);
 
-	@GET("concept/{sectionId}")
-	Call<Concept> saveConcept(@Path(value = "sectionId") int sectionId, Concept concept);
+	@POST("concept/{sectionId}")
+	Call<Concept> saveConcept(@Path(value = "sectionId") int sectionId, @Body Concept concept);
 }
