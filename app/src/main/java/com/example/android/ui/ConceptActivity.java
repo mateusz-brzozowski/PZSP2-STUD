@@ -2,24 +2,18 @@ package com.example.android.ui;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.android.R;
 import com.example.android.web.ApiClient;
 import com.example.model.Concept;
 import com.example.model.Paragraph;
-
-import java.util.Collections;
 import java.util.Comparator;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -57,7 +51,7 @@ public class ConceptActivity extends AppCompatActivity {
 	private void getConcept() {
 		ApiClient apiClient = ApiClient.getInstance();
 		var settings = getSharedPreferences("Android", Activity.MODE_PRIVATE);
-		Call<Concept> call = apiClient.getConceptById(settings.getInt("concept", 7));
+		Call<Concept> call = apiClient.getConceptById(settings.getInt("concept", 1));
 		call.enqueue(new Callback<>() {
 			@SuppressLint("NotifyDataSetChanged")
 			@Override

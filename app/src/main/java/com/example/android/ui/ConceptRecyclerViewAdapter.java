@@ -271,6 +271,7 @@ public class ConceptRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
 		int i = 1;
 		for (var paragraph : concept.getParagraphs()) {
 			paragraph.setNumber(i);
+			paragraph.setSequentialNumber(i);
 			i = i + 1;
 		}
 		Call<Concept> call = apiClient.saveConcept(1, concept);
