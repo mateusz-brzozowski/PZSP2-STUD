@@ -16,7 +16,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 @UtilityClass
 public class ApiClientBuilder {
 
-	private static final String TARGET_URL = "http://10.0.2.2:8075/api/";
+	private static final String TARGET_URL = "http://10.0.2.2:8080/";
 	private static ApiClient apiClient;
 
 	public static ApiClient getInstance() {

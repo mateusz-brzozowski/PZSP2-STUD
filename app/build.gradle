@@ -3,7 +3,6 @@ plugins {
 	id 'checkstyle'
 	id 'org.codehaus.groovy.android'
 	id 'jacoco'
-	id 'org.sonarqube' version '3.4.0.2513'
 }
 
 android {
@@ -12,7 +11,7 @@ android {
 
 	defaultConfig {
 		applicationId "com.example.android"
-		minSdk 23
+		minSdk 24
 		targetSdk 33
 		versionCode 1
 		versionName "1.0"
@@ -83,10 +82,4 @@ task checkstyle(type: Checkstyle) {
 
 	classpath = files()
 	preBuild.dependsOn('checkstyle')
-}
-
-sonarqube {
-	properties {
-		property "sonar.projectKey", "pis22z_android_AYRoa2IwhCb-_oA5D4BA"
-	}
 }

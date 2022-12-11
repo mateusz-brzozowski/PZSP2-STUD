@@ -1,3 +1,12 @@
 <resources>
 	<string name="app_name">Android</string>
+	<string name="login_text">Login</string>
+	<string name="paragraph_name">Paragraph</string>
+	<string name="paragraph_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec tortor nisl. Suspendisse sodales fermentum nisl. Duis viverra, sapien non iaculis tempus, orci ex lobortis augue, posuere ornare eros augue sit amet nibh. Sed vulputate purus dui, quis volutpat augue consectetur quis. Phasellus porttitor arcu ut tellus faucibus tincidunt.</string>
+	<string name="concept_name">Paragraph</string>
+	<string name="concept_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec tortor nisl. Suspendisse sodales fermentum nisl. Duis viverra, sapien non iaculis tempus, orci ex lobortis augue, posuere ornare eros augue sit amet nibh. Sed vulputate purus dui, quis volutpat augue consectetur quis. Phasellus porttitor arcu ut tellus faucibus tincidunt.</string>
+    <string name="hint_concept">Concept</string>
+    <string name="hint_paragraph">Paragraph</string>
+	<string name="hint_paragraph_content">Content</string>
+    <string name="hint_concept_summary">Summary</string>
 </resources>
