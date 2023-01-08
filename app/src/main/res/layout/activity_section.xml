@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context=".ui.section.SectionActivity">
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:id="@+id/layout_search"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent">
+
+		<EditText
+			android:id="@+id/section_edit_text"
+			style="@style/Theme.Android.editText.search"
+			android:autofillHints=""
+			android:layout_width="0dp"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toStartOf="@id/button_edit"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<Button
+			android:id="@+id/button_edit"
+			style="@style/Theme.Android.iconButton"
+			app:icon="@drawable/ic_edit"
+			android:layout_margin="8dp"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+
+	<ScrollView
+		android:id="@+id/section_scroll_view"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/layout_search">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+
+			<TextView
+				android:id="@+id/section_text_view"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+				android:layout_marginVertical="@dimen/activity_vertical_margin"
+				android:contentDescription=""
+				android:text="@string/text_section"
+				android:textSize="30sp" />
+
+			<include
+				android:id="@+id/concepts_view"
+				layout="@layout/view_concepts" />
+
+			<include
+				android:id="@+id/sub_sections_view"
+				layout="@layout/view_sub_sections" />
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+				android:layout_marginVertical="@dimen/activity_vertical_margin"
+				android:contentDescription=""
+				android:text="@string/text_check_your_knowledge"
+				android:textSize="30sp" />
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+
+				<Button
+					android:id="@+id/section_test_button"
+					style="@style/Theme.Android.button"
+					android:text="@string/text_exam_mode" />
+
+				<Button
+					android:id="@+id/section_exam_button"
+					style="@style/Theme.Android.button"
+					android:text="@string/text_study_mode" />
+			</LinearLayout>
+		</LinearLayout>
+	</ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

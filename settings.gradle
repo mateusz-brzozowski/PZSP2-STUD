@@ -11,6 +11,14 @@ dependencyResolutionManagement {
 		google()
 		mavenCentral()
 		mavenLocal()
+		maven {
+			url = uri("http://localhost:8081/repository/maven-private")
+			credentials {
+				username = nexusUsername
+				password = nexusPassword
+			}
+			allowInsecureProtocol = true
+		}
 	}
 }
 rootProject.name = "Android"

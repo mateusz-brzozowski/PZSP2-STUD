@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context=".ui.exam.ExamActivity"
+	android:orientation="vertical">
+
+	<FrameLayout
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1.5">
+
+		<TextView
+			android:id="@+id/exam_time_text_view"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="start"
+			android:layout_marginHorizontal="16dp"
+			android:layout_marginTop="10dp"
+			android:textSize="16sp"
+			tools:text="21:37" />
+
+		<com.google.android.material.progressindicator.LinearProgressIndicator
+			android:id="@+id/exam_time_progress_bar"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:progress="100" />
+
+		<TextView
+			android:id="@+id/exam_question_text_view"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="end"
+			tools:text="1/3"
+			android:layout_marginTop="10dp"
+			android:layout_marginHorizontal="16dp"
+			android:textSize="16sp" />
+	</FrameLayout>
+
+	<FrameLayout
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="25">
+
+		<androidx.viewpager2.widget.ViewPager2
+			android:id="@+id/exam_view_pager"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent" />
+
+		<ProgressBar
+			android:id="@+id/exam_progress_bar"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center" />
+	</FrameLayout>
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="4">
+
+		<TextView
+			android:id="@+id/exam_back_text_view"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/text_back"
+			android:textSize="20sp"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintEnd_toEndOf="@id/exam_divider"
+			app:layout_constraintTop_toTopOf="parent"
+			app:layout_constraintBottom_toBottomOf="parent"
+			android:padding="8dp"
+			app:drawableStartCompat="@drawable/ic_arrow_left"
+			android:background="?selectableItemBackgroundBorderless"
+			android:clickable="true"
+			android:focusable="true" />
+
+
+		<ImageView
+			android:id="@+id/exam_divider"
+			android:layout_width="1dp"
+			android:layout_height="match_parent"
+			android:src="@drawable/shape_divider"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			app:layout_constraintBottom_toBottomOf="parent"
+			android:layout_marginVertical="20dp"
+			android:background="?android:attr/selectableItemBackground"
+			android:clickable="true"
+			android:focusable="true"
+			android:textIsSelectable="true"
+			tools:ignore="ContentDescription" />
+
+		<TextView
+			android:id="@+id/exam_next_text_view"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/text_next"
+			android:textSize="20sp"
+			app:layout_constraintStart_toStartOf="@id/exam_divider"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			app:layout_constraintBottom_toBottomOf="parent"
+			android:padding="8dp"
+			app:drawableEndCompat="@drawable/ic_arrow_right"
+			android:background="?selectableItemBackgroundBorderless"
+			android:clickable="true"
+			android:focusable="true" />
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

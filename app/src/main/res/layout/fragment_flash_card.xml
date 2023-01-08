@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	tools:context=".ui.exam.exercise.FlashCardFragment">
+
+	<TextView
+		android:id="@+id/text_view_answer"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_marginVertical="60dp"
+		android:layout_marginHorizontal="16dp"
+		android:gravity="center"
+		android:text="@string/hidden_text"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<Button
+		android:id="@+id/button_reveal"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginVertical="60dp"
+		android:text="@string/reveal"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/text_view_answer" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

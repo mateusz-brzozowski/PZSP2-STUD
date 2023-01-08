@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:orientation="vertical"
+	android:padding="16dp">
+
+	<TextView
+		android:id="@+id/text_view_start_paragraph"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		tools:text="Hej, to mój pierwszy paragraf. Dzisiaj na kolację jadłem: "
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<ImageView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		app:layout_constraintTop_toTopOf="@id/spinner_answers"
+		app:layout_constraintBottom_toBottomOf="@id/spinner_answers"
+		app:layout_constraintEnd_toEndOf="@id/spinner_answers"
+		android:layout_margin="16dp"
+		android:contentDescription="@string/spinner_content_description"
+		android:src="@drawable/ic_arrow_drop_down" />
+
+	<Spinner
+		android:id="@+id/spinner_answers"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@drawable/selectable_answer"
+		android:inputType="text"
+		android:maxLines="1"
+		android:minHeight="40dp"
+		android:paddingHorizontal="16dp"
+		tools:text="obiad"
+		app:layout_constraintTop_toBottomOf="@id/text_view_start_paragraph" />
+
+	<TextView
+		android:id="@+id/text_view_end_paragraph"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		tools:text="i wszystko to było przepyszne."
+		app:layout_constraintTop_toBottomOf="@id/spinner_answers" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

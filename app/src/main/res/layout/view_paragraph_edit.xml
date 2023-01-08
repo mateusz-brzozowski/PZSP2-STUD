@@ -43,17 +43,8 @@
 
             <Button
                 android:id="@+id/paragraph_edit_delete_button"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-
-                android:layout_margin="3dp"
-                android:background="@drawable/edit_button"
-                android:elevation="3dp"
-                android:gravity="center"
-                android:padding="12dp"
-                app:backgroundTint="@null"
-                app:icon="@drawable/ic_delete"
-                app:iconTint="@color/colorPrimary" />
+                style="@style/Theme.Android.iconButton"
+                app:icon="@drawable/ic_delete" />
         </LinearLayout>
 
         <EditText

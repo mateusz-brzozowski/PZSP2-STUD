@@ -1,0 +1,24 @@
+<resources>
+	<!-- Language Preference -->
+	<string-array name="language_entries">
+		<item>Polski</item>
+		<item>English</item>
+	</string-array>
+
+	<string-array name="language_values">
+		<item>pl</item>
+		<item>en</item>
+	</string-array>
+	<!-- Style Preference -->
+	<string-array name="style_entries">
+		<item>@string/light</item>
+		<item>@string/dark</item>
+		<item>@string/system</item>
+	</string-array>
+
+	<string-array name="style_values">
+		<item>@string/light_key</item>
+		<item>@string/dark_key</item>
+		<item>@string/system_key</item>
+	</string-array>
+</resources>

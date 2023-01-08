@@ -1,0 +1,41 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+	<PreferenceCategory app:title="@string/settings_account">
+
+		<EditTextPreference
+			app:defaultValue="admin@gmail.com"
+			app:key="@string/email_key"
+			app:title="@string/settings_email"
+			app:useSimpleSummaryProvider="true" />
+
+		<Preference
+			app:key="@string/password_key"
+			app:title="@string/settings_password" />
+
+		<Preference
+			app:key="@string/logout_key"
+			app:title="@string/settings_logout" />
+
+	</PreferenceCategory>
+
+	<PreferenceCategory app:title="@string/settings_preferences">
+
+		<ListPreference
+			app:defaultValue="pl"
+			app:entries="@array/language_entries"
+			app:entryValues="@array/language_values"
+			app:key="@string/language_key"
+			app:title="@string/settings_language"
+			app:useSimpleSummaryProvider="true" />
+
+		<ListPreference
+			app:defaultValue="@string/system_key"
+			app:entries="@array/style_entries"
+			app:entryValues="@array/style_values"
+			app:key="@string/settings_theme_key"
+			app:title="@string/settings_theme"
+			app:useSimpleSummaryProvider="true" />
+
+	</PreferenceCategory>
+
+</PreferenceScreen>

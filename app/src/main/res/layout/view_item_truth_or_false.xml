@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools">
+
+	<TextView
+		android:id="@+id/text_view_question"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_margin="16dp"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintBottom_toBottomOf="parent"
+		tools:text="Na ekranie siedzi wrona, a ja piszę w papierowym zeszycie."
+		app:layout_constraintEnd_toStartOf="@id/radio_group_truth_or_false" />
+
+	<RadioGroup
+		android:id="@+id/radio_group_truth_or_false"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintBottom_toBottomOf="parent">
+
+		<RadioButton
+			android:id="@+id/truth_button"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/truth_button"
+			android:background="@drawable/selectable_answer_ripple"
+			android:layout_gravity="center"
+			android:gravity="center"
+			android:textAlignment="center"
+			android:textSize="18sp"
+			android:padding="16dp"
+			android:button="@null" />
+
+		<RadioButton
+			android:id="@+id/false_button"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_margin="10dp"
+			android:text="@string/false_button"
+			android:background="@drawable/selectable_answer_ripple"
+			android:layout_gravity="center"
+			android:gravity="center"
+			android:textAlignment="center"
+			android:textSize="18sp"
+			android:padding="16dp"
+			android:button="@null" />
+	</RadioGroup>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

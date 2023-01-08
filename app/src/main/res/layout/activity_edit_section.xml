@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	tools:context=".ui.section.edit.EditSectionActivity">
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<EditText
+			android:id="@+id/edit_text_section"
+			style="@style/Theme.Android.editText"
+			android:layout_width="0dp"
+			android:autofillHints=""
+			android:hint="@string/hint_section"
+			android:inputType="text"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toStartOf="@id/button_done"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<Button
+			android:id="@+id/button_done"
+			style="@style/Theme.Android.iconButton"
+			android:layout_margin="8dp"
+			app:icon="@drawable/ic_done"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toStartOf="@id/button_cancel"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<Button
+			android:id="@+id/button_cancel"
+			style="@style/Theme.Android.iconButton"
+			android:layout_gravity="center"
+			android:layout_margin="8dp"
+			app:icon="@drawable/ic_close"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+	</androidx.constraintlayout.widget.ConstraintLayout>
+
+	<Button
+		android:id="@+id/button_add_concept"
+		style="@style/Theme.Android.button"
+		android:layout_gravity="center"
+		android:text="@string/button_add_concept" />
+
+	<Button
+		android:id="@+id/button_add_sub_section"
+		style="@style/Theme.Android.button"
+		android:layout_gravity="center"
+		android:text="@string/button_add_sub_section" />
+
+	<Button
+		android:id="@+id/button_add_exercise"
+		style="@style/Theme.Android.button"
+		android:layout_gravity="center"
+		android:text="@string/button_add_exercise" />
+
+</LinearLayout>

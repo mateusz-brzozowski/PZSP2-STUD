@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+
+	<EditText
+		android:id="@+id/edit_text_start"
+		style="@style/Theme.Android.editText"
+		android:autofillHints=""
+		android:hint="@string/hint_start_paragraph"
+		android:inputType="text"
+		android:selectAllOnFocus="true" />
+
+	<EditText
+		android:id="@+id/edit_text_correct_answer"
+		style="@style/Theme.Android.editText"
+		android:autofillHints=""
+		android:hint="@string/hint_correct_answer"
+		android:inputType="text"
+		android:selectAllOnFocus="true" />
+
+	<EditText
+		android:id="@+id/edit_text_other_answers"
+		style="@style/Theme.Android.editText"
+		android:autofillHints=""
+		android:hint="@string/hint_possible_answers"
+		android:inputType="text"
+		android:selectAllOnFocus="true" />
+
+	<EditText
+		android:id="@+id/edit_text_end"
+		style="@style/Theme.Android.editText"
+		android:autofillHints=""
+		android:hint="@string/hint_continue_paragraph"
+		android:inputType="text"
+		android:selectAllOnFocus="true" />
+
+</LinearLayout>

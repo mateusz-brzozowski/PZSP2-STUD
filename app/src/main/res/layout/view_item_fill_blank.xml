@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:orientation="vertical"
+	android:padding="16dp">
+
+	<TextView
+		android:id="@+id/text_view_start_paragraph"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		tools:text="Hej, to mój pierwszy paragraf. Dzisiaj na kolację jadłem: " />
+
+	<EditText
+		android:id="@+id/edit_text_answer"
+		android:layout_width="match_parent"
+		android:paddingHorizontal="16dp"
+		android:layout_height="wrap_content"
+		android:inputType="text"
+		android:maxLines="1"
+		android:minHeight="40dp"
+		android:background="@drawable/selectable_answer"
+		tools:text="obiad" />
+
+	<TextView
+		android:id="@+id/text_view_end_paragraph"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		tools:text="i wszystko to było przepyszne." />
+
+
+</LinearLayout>
