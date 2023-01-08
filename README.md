@@ -9,6 +9,10 @@ literatury pomocniczej, GITów i innych zasobów sieci.
 # Data Transfer Model (DTOs)
 DTOs i diagram UML są  dostępne [tutaj](https://gitlab-stud.elka.pw.edu.pl/bkrawcz1/pzsp2-22z-model).
 
+# REST API
+Aplikacja łączy się z WebSerwisem korzystając z REST API.
+Repozytorium z serwisem internetowym dostępne jest [tutaj](https://gitlab-stud.elka.pw.edu.pl/bkrawcz1/pzsp2-22z-api).
+
 # Model Komponentów - Android
 Na Androidzie wykorzystujemy architekturę aplikacji polecaną przez twórców Androida - (Model - View - ViewModel) - [link](https://developer.android.com/topic/architecture): 
 
