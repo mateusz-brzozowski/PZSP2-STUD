@@ -30,6 +30,10 @@ Wydzielimy główne komponenty:
 
     Warstwa Danych - odpowiedzialna za przechowywanie oraz aktualizację danych
 
+# Diagram klas
+
+![](./img/android.png)
+
 # Budowanie i uruchomienie
 Do poprawnego zbudowania i uruchomienia projektu wymagane jest Java17 i AndroidSDK dlatego najlepiej
 skorzystać z AndroidStudio gdzie projekt jest poprawnie rozpoznawany jako projekt aplikacji mobilnej
