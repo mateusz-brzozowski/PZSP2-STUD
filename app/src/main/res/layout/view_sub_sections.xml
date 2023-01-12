@@ -3,36 +3,35 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:id="@+id/linearLayout3"
-	app:layout_constraintBottom_toBottomOf="parent"
-	app:layout_constraintEnd_toEndOf="parent"
-	app:layout_constraintStart_toStartOf="parent"
-	app:layout_constraintTop_toTopOf="parent"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
 	android:layout_margin="8dp"
 	android:background="@drawable/surface_background"
 	android:elevation="3dp"
-	android:orientation="vertical">
+	android:orientation="vertical"
+	app:layout_constraintBottom_toBottomOf="parent"
+	app:layout_constraintEnd_toEndOf="parent"
+	app:layout_constraintStart_toStartOf="parent"
+	app:layout_constraintTop_toTopOf="parent">
 
 	<TextView
 		android:id="@+id/section_name"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:background="@drawable/secondary_active_background"
-		android:text="@string/text_sub_sections"
-		android:textAppearance="@style/title_medium"
-		android:textStyle="bold"
 		android:paddingHorizontal="24dp"
 		android:paddingVertical="10dp"
-		android:textColor="#000" />
+		android:text="@string/text_sub_sections"
+		android:textAppearance="@style/title_medium"
+		android:textStyle="bold" />
 
 	<ListView
 		android:id="@+id/sub_sections_list_view"
-		tools:listitem="@android:layout/simple_list_item_1"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:background="@drawable/sub_section_background"
 		android:divider="@null"
 		android:dividerHeight="0dp"
-		android:fillViewport="true" />
+		android:fillViewport="true"
+		tools:listitem="@android:layout/simple_list_item_1" />
 </LinearLayout>

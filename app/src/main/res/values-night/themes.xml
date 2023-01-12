@@ -12,6 +12,10 @@
 		<!-- Status bar color. -->
 		<item name="android:statusBarColor">?attr/colorTertiary</item>
 		<!-- Customize your theme here. -->
+		<item name="colorPrimarySurface">@color/colorSurface1Dark</item>
+		<item name="colorSurface">@color/colorSurface5Dark</item>
+		<item name="colorSecondaryContainer">@color/colorSecondaryContainerDark</item>
+		<item name="android:textColor">@color/white</item>
 	</style>
 
 	<style name="title_large">

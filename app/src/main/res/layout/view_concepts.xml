@@ -23,7 +23,6 @@
 		android:paddingVertical="10dp"
 		android:text="@string/text_concepts"
 		android:textAppearance="@style/title_medium"
-		android:textColor="#000"
 		android:textStyle="bold" />
 
 	<ListView
