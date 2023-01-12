@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+import com.example.android.util.TokenHandler;
 import com.example.android.web.ApiClient;
 import com.example.model.Section;
 import java.util.Optional;
@@ -46,12 +47,17 @@ public class SectionViewModel extends ViewModel {
 
 	public void saveSection(int parentSectionId, Section section) {
 		var apiClient = ApiClient.getInstance();
-		var call = apiClient.saveSection(parentSectionId != 0 ? parentSectionId : null, section);
+		var token = TokenHandler.getInstance().getToken();
+		var call = apiClient.saveSection(parentSectionId != 0 ? parentSectionId : null, section, token);
 		call.enqueue(new Callback<>() {
 			@Override
 			public void onResponse(@NonNull Call<Section> call, @NonNull Response<Section> response) {
 				var result = Optional.ofNullable(response.body()).orElse(section);
 				sectionLiveData.setValue(result);
+				if (!response.isSuccessful()) {
+					TokenHandler.getInstance().regenerateToken();
+					saveSection(parentSectionId, section);
+				}
 			}
 
 			@Override
@@ -63,11 +69,15 @@ public class SectionViewModel extends ViewModel {
 
 	public void deleteSection(int sectionId) {
 		var apiClient = ApiClient.getInstance();
-		var call = apiClient.deleteSection(sectionId);
+		var token = TokenHandler.getInstance().getToken();
+		var call = apiClient.deleteSection(sectionId, token);
 		call.enqueue(new Callback<>() {
 			@Override
 			public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
-				// Do nothing
+				if (!response.isSuccessful()) {
+					TokenHandler.getInstance().regenerateToken();
+					deleteSection(sectionId);
+				}
 			}
 
 			@Override

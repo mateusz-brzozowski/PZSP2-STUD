@@ -2,6 +2,7 @@ package com.example.android;
 
 import android.app.Application;
 import com.example.android.util.SettingsUtility;
+import com.example.android.util.TokenHandler;
 
 public class App extends Application {
 
@@ -10,5 +11,6 @@ public class App extends Application {
 		super.onCreate();
 		SettingsUtility.updateTheme(this);
 		SettingsUtility.updateLanguage(this);
+		TokenHandler.initialize(this.getApplicationContext());
 	}
 }

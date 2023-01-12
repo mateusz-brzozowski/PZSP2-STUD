@@ -14,9 +14,12 @@ import android.widget.Toast;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.preference.PreferenceManager;
+import com.example.android.R;
 import com.example.android.databinding.ActivityLoginBinding;
 import com.example.android.ui.MainMenuActivity;
 import com.example.android.util.SettingsUtility;
+import com.example.android.util.TokenHandler;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -31,8 +34,7 @@ public class LoginActivity extends AppCompatActivity {
 		binding = ActivityLoginBinding.inflate(getLayoutInflater());
 		setContentView(binding.getRoot());
 
-		loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
-				.get(LoginViewModel.class);
+		loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
 
 		final EditText usernameEditText = binding.loginEmail;
 		final EditText passwordEditText = binding.loginPasswordEditText;
@@ -62,11 +64,11 @@ public class LoginActivity extends AppCompatActivity {
 			}
 			if (loginResult.getSuccess() != null) {
 				updateUiWithUser(loginResult.getSuccess());
-			}
-			setResult(Activity.RESULT_OK);
+				setResult(Activity.RESULT_OK);
 
-			//Complete and destroy login activity once successful
-			finish();
+				//Complete and destroy login activity once successful
+				finish();
+			}
 		});
 
 		TextWatcher afterTextChangedListener = new TextWatcher() {
@@ -104,6 +106,8 @@ public class LoginActivity extends AppCompatActivity {
 	}
 
 	private void updateUiWithUser(LoggedInUserView model) {
+		var handler = TokenHandler.getInstance();
+		handler.setToken(model.getToken());
 		var intent = new Intent(this, MainMenuActivity.class);
 		startActivity(intent);
 	}

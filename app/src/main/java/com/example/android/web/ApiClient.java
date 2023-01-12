@@ -1,14 +1,17 @@
 package com.example.android.web;
 
+import com.example.android.data.model.Authorization;
 import com.example.model.Concept;
 import com.example.model.Definition;
 import com.example.model.Section;
+import com.example.model.User;
 import com.example.model.exam.ExerciseDto;
 import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
@@ -28,7 +31,7 @@ public interface ApiClient {
 	Call<Concept> getConceptById(@Path(value = "id") int id);
 
 	@POST("concept/{sectionId}")
-	Call<Concept> saveConcept(@Path(value = "sectionId") int sectionId, @Body Concept concept);
+	Call<Concept> saveConcept(@Path(value = "sectionId") int sectionId, @Body Concept concept, @Header("Authorization") String token);
 
 	@GET("concept/section/{sectionId}")
 	Call<List<Definition>> getConceptsBySectionId(@Path(value = "sectionId") int sectionId);
@@ -40,10 +43,10 @@ public interface ApiClient {
 	Call<List<Section>> getRootSections(); // Where parent section id is null
 
 	@POST("section/{sectionId}")
-	Call<Section> saveSection(@Path(value = "sectionId") Integer sectionId, @Body Section section);
+	Call<Section> saveSection(@Path(value = "sectionId") Integer sectionId, @Body Section section, @Header("Authorization") String token);
 
 	@DELETE("section/{sectionId}")
-	Call<Void> deleteSection(@Path(value = "sectionId") int sectionId);
+	Call<Void> deleteSection(@Path(value = "sectionId") int sectionId, @Header("Authorization") String token);
 
 	@GET("section/id/{sectionId}")
 	Call<Section> getSectionById(@Path(value = "sectionId") int sectionId);
@@ -52,5 +55,11 @@ public interface ApiClient {
 	Call<List<ExerciseDto>> getExercisesBySectionId(@Path(value = "sectionId") int sectionId);
 
 	@POST("exercise/{sectionId}")
-	Call<ExerciseDto> saveExercise(@Path(value = "sectionId") int sectionId, @Body ExerciseDto exercise);
+	Call<ExerciseDto> saveExercise(@Path(value = "sectionId") int sectionId, @Body ExerciseDto exercise, @Header("Authorization") String token);
+
+	@POST("user/register")
+	Call<Authorization> register(@Body User user);
+
+	@POST("user/login")
+	Call<Authorization> login(@Body User user);
 }
