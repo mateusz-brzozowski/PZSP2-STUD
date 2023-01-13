@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content">
+
+	<LinearLayout
+		android:id="@+id/linearLayout3"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_margin="8dp"
+		android:background="@drawable/surface_background"
+		android:elevation="3dp"
+		android:orientation="vertical"
+		android:padding="12dp"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent">
+
+		<TextView
+			android:id="@+id/test_name"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/test_name"
+			android:textAppearance="@style/title_medium"
+			android:textStyle="bold" />
+
+		<TextView
+			android:id="@+id/test_description"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/test_description"
+			android:textAppearance="@style/body_large" />
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="end">
+
+			<Button
+				android:id="@+id/tests_exam_button"
+				style="@style/Theme.Android.button"
+				android:minHeight="40dp"
+				android:paddingHorizontal="20dp"
+				android:text="@string/text_exam_mode" />
+
+			<Button
+				android:id="@+id/tests_study_button"
+				style="@style/Theme.Android.button"
+				android:minHeight="40dp"
+				android:paddingHorizontal="20dp"
+				android:text="@string/text_study_mode" />
+		</LinearLayout>
+
+	</LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

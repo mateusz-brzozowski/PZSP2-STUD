@@ -70,4 +70,6 @@
 	<string name="button_add_concept">Dodaj Koncept</string>
 	<string name="button_add_sub_section">Dodaj Pod-Sekcję</string>
 	<string name="button_add_exercise">Dodaj Zadanie</string>
+	<string name="test_description">Przetestuj swoją wiedzę! \n 📝📝📝</string>
+	<string name="test_name">Symulacja Egzaminu</string>
 </resources>

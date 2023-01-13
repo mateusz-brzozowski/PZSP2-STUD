@@ -1,6 +1,7 @@
 package com.example.android.ui.concept;
 
 import android.annotation.SuppressLint;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -170,6 +171,7 @@ public class ConceptRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
 
 			this.textConceptName = itemView.findViewById(R.id.concept_name);
 			this.textConceptContent = itemView.findViewById(R.id.concept_content);
+			this.textConceptContent.setMovementMethod(LinkMovementMethod.getInstance());
 			this.buttonEditConcept = itemView.findViewById(R.id.concept_edit_button);
 		}
 	}
@@ -184,6 +186,7 @@ public class ConceptRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
 
 			this.textParagraphName = itemView.findViewById(R.id.paragraph_name);
 			this.textParagraphContent = itemView.findViewById(R.id.paragraph_content);
+			this.textParagraphContent.setMovementMethod(LinkMovementMethod.getInstance());
 			this.linearLayout = itemView.findViewById(R.id.paragraph_linear_layout);
 		}
 	}

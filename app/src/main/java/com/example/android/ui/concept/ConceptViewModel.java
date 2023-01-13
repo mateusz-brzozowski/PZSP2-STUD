@@ -88,6 +88,11 @@ public class ConceptViewModel extends ViewModel {
 								.header("Cechy użytkowe")
 								.description(
 										"ułatwienie komunikacji między ludźmi. Korzystając z sieci, ludzie mogą komunikować się szybko i łatwo przy wykorzystaniu odpowiednich programów komputerowych i oferowanych w danej sieci usług sieciowych. W odniesieniu do sieci Internet należy wyróżnić dwa rodzaje programów i skojarzone z nimi usługi")
+								.build(),
+						Paragraph.builder()
+								.header("Link do wykładu")
+								.description(
+										"http://staff.ii.pw.edu.pl/~gjb/psi/w2.pdf")
 								.build()
 				))
 				.build();

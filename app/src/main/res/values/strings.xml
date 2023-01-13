@@ -84,4 +84,6 @@
 	<string name="button_add_exercise">Add Exercise</string>
 	<string name="token_key" translatable="false">token_key</string>
 	<string name="user_key" translatable="false">user_key</string>
+	<string name="test_description">Test your knowledge! \n 📝📝📝</string>
+	<string name="test_name">Exam simulation</string>
 </resources>
