@@ -14,7 +14,8 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 @NoArgsConstructor
 public class ApiClientBuilder {
 
-	private String target = "http://10.0.2.2:8080/";
+//	private String target = "https://10.0.2.2:8080/";
+	private String target = "https://pzsp2.hopto.org/";
 
 	public ApiClientBuilder target(String target) {
 		this.target = target;
