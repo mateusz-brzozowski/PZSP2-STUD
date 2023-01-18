@@ -32,6 +32,7 @@ import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -200,72 +201,72 @@ public class EditExerciseActivity extends AppCompatActivity {
 	}
 
 	private FillBlanks toFillBlanks(String question) {
-		var answers = paragraphAdapter.getParagraphAnswers()
-				.stream()
-				.map(paragraph ->
-						BlankAnswer.builder()
-								.start(paragraph.getStart())
-								.answer(paragraph.getAnswer())
-								.end(paragraph.getEnd())
-								.build()
-				)
-				.collect(Collectors.toList());
+		var answers = new ArrayList<BlankAnswer>();
+		var i = 0;
+		for (var answer : paragraphAdapter.getParagraphAnswers()) {
+			answers.add(BlankAnswer.builder()
+					.id(i++)
+					.start(answer.getStart())
+					.answer(answer.getAnswer())
+					.end(answer.getEnd())
+					.build());
+		}
 		return FillBlanks.builder().question(question).answers(answers).build();
 	}
 
 	private SelectFromList toSelectFromList(String question) {
-		var answers = paragraphAdapter.getParagraphAnswers()
-				.stream()
-				.map(paragraph ->
-						ListAnswer.builder()
-								.start(paragraph.getStart())
-								.correctAnswer(paragraph.getAnswer())
-								.end(paragraph.getEnd())
-								.possibleAnswers(List.of(paragraph.getPossibleAnswers().split(",")))
-								.build()
-				)
-				.collect(Collectors.toList());
+		var answers = new ArrayList<ListAnswer>();
+		var i = 0;
+		for (var answer : paragraphAdapter.getParagraphAnswers()) {
+			answers.add(ListAnswer.builder()
+					.number(i++)
+					.start(answer.getStart())
+					.correctAnswer(answer.getAnswer())
+					.end(answer.getEnd())
+					.possibleAnswers(List.of(answer.getPossibleAnswers().split(",")))
+					.build());
+		}
 		return SelectFromList.builder().question(question).answers(answers).build();
 	}
 
 	private Choice toChoice(String question) {
-		var answers = choiceAdapter.getPossibleAnswers()
-				.stream()
-				.map(choice ->
-						ChoiceAnswer.builder()
-								.correct(choice.isCorrect())
-								.content(choice.getAnswer())
-								.build()
-				)
-				.collect(Collectors.toList());
+		var answers = new ArrayList<ChoiceAnswer>();
+		var i = 0;
+		for (var answer :  choiceAdapter.getPossibleAnswers()) {
+			answers.add(ChoiceAnswer.builder()
+					.number(i++)
+					.correct(answer.isCorrect())
+					.content(Optional.ofNullable(answer.getAnswer()).orElse(""))
+					.build());
+		}
 		var possibleAnswers = answers.stream().map(ChoiceAnswer::getContent).collect(Collectors.toList());
-		var correct = answers.stream().filter(ChoiceAnswer::isCorrect).findFirst().map(ChoiceAnswer::getContent).orElse(null);
+		var correct = answers.stream().filter(ChoiceAnswer::isCorrect).findFirst().map(ChoiceAnswer::getContent).orElse("");
 		return Choice.builder().question(question).possibleAnswers(possibleAnswers).correctAnswer(correct).build();
 	}
 
 	private MultipleChoice toMultipleChoice(String question) {
-		var answers = choiceAdapter.getPossibleAnswers()
-				.stream()
-				.map(choice ->
-						ChoiceAnswer.builder()
-								.correct(choice.isCorrect())
-								.content(choice.getAnswer())
-								.build()
-				)
-				.collect(Collectors.toList());
+		var answers = new ArrayList<ChoiceAnswer>();
+		var i = 0;
+		for (var answer :  choiceAdapter.getPossibleAnswers()) {
+			answers.add(ChoiceAnswer.builder()
+					.number(i++)
+					.correct(answer.isCorrect())
+					.content(Optional.ofNullable(answer.getAnswer()).orElse(""))
+					.build());
+		}
 		return MultipleChoice.builder().question(question).answers(answers).build();
 	}
 
 	private MultipleTruthOrFalse toMultipleTruthOrFalse(String question) {
-		var answers = choiceAdapter.getPossibleAnswers()
-				.stream()
-				.map(choice ->
-						ChoiceAnswer.builder()
-								.correct(choice.isCorrect())
-								.content(choice.getAnswer())
-								.build()
-				)
-				.collect(Collectors.toList());
+		var answers = new ArrayList<ChoiceAnswer>();
+		var i = 0;
+		for (var answer :  choiceAdapter.getPossibleAnswers()) {
+			answers.add(ChoiceAnswer.builder()
+					.number(i++)
+					.correct(answer.isCorrect())
+					.content(Optional.ofNullable(answer.getAnswer()).orElse(""))
+					.build());
+		}
 		return MultipleTruthOrFalse.builder().question(question).tasks(answers).build();
 	}
 
