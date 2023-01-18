@@ -11,7 +11,7 @@ public interface TextChangedHandler {
 		return new TextWatcher() {
 			@Override
 			public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-				// Do nothing
+				handler.handle(s.toString());
 			}
 
 			@Override
@@ -21,7 +21,7 @@ public interface TextChangedHandler {
 
 			@Override
 			public void afterTextChanged(Editable s) {
-				// Do nothing
+				handler.handle(s.toString());
 			}
 		};
 	}
